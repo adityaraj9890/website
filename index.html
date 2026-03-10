@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A.S.Pharma | Trusted Medical Store</title>
+    <style>
+        /* --- CSS STYLES --- */
+        :root {
+            --primary-black: #1a1a1a;
+            --secondary-black: #000000;
+            --pure-white: #ffffff;
+            --light-gray: #f4f4f4;
+            --border-color: #e0e0e0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--pure-white);
+            color: var(--primary-black);
+            line-height: 1.6;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--secondary-black);
+            color: var(--pure-white);
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--pure-white);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .logo span {
+            color: #ccc; /* Slight gray for the dot */
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: var(--pure-white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ccc;
+        }
+
+        /* Mobile Menu Button */
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: var(--pure-white);
+            padding: 80px 5%;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--secondary-black);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #555;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--secondary-black);
+            color: var(--pure-white);
+            text-decoration: none;
+            font-weight: bold;
+            border: 2px solid var(--secondary-black);
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--pure-white);
+            color: var(--secondary-black);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 60px 5%;
+            background-color: var(--light-gray);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2rem;
+            text-transform: uppercase;
+            border-bottom: 2px solid var(--secondary-black);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--pure-white);
+            padding: 30px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        /* About Section */
+        .about {
+            padding: 60px 5%;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-text h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            height: 300px;
+            background-color: #ddd; /* Placeholder for image */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--secondary-black);
+        }
+
+        /* Location & Contact Section */
+        .contact {
+            background-color: var(--secondary-black);
+            color: var(--pure-white);
+            padding: 60px 5%;
+        }
+
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-info h2 {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #555;
+            padding-bottom: 10px;
+        }
+
+        .address-box {
+            margin-top: 20px;
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-left: 4px solid var(--pure-white);
+        }
+
+        .map-container {
+            flex: 1;
+            min-width: 300px;
+            height: 350px;
+            background-color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #555;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #000;
+            color: #888;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+            border-top: 1px solid #333;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--secondary-black);
+                text-align: center;
+                padding: 20px 0;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">A.S.<span>Pharma</span></div>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <nav>
+            <ul id="nav-list">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1>Your Health, Our Priority</h1>
+        <p>Providing genuine medicines and healthcare solutions in Bokaro Steel City. Trusted by the community.</p>
+        <a href="#contact" class="btn">Visit Us Today</a>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div style="text-align: center;">
+            <h2 class="section-title">Our Services</h2>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Prescription Medicines</h3>
+                <p>Wide range of genuine medicines for all common ailments and chronic conditions.</p>
+            </div>
+            <div class="service-card">
+                <h3>Health Supplements</h3>
+                <p>Vitamins, minerals, and protein supplements to boost your immunity and health.</p>
+            </div>
+            <div class="service-card">
+                <h3>Personal Care</h3>
+                <p>Skincare, baby care, and hygiene products from top brands.</p>
+            </div>
+            <div class="service-card">
+                <h3>Home Delivery</h3>
+                <p>Fast and reliable delivery service within Bokaro Steel City.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="about-image">
+           <img src="hello.jpg.webp" alt="A.S.Pharma"
+           style="width: 100%;" height="auto" B>
+        </div>
+        <div class="about-text">
+            <h2>About A.S.Pharma</h2>
+            <p>Located in the heart of Block Colony Pordag, A.S.Pharma is dedicated to serving the healthcare needs of the Bokaro Steel City community. We pride ourselves on maintaining high standards of hygiene, authenticity of products, and customer service.</p>
+            <br>
+            <p>Whether you need a quick prescription refill or advice on over-the-counter medications, our team is here to help.</p>
+        </div>
+    </section>
+
+    <!-- Contact & Location Section -->
+    <section id="contact" class="contact">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Find Us</h2>
+                <p>We are conveniently located near NH320 for easy access.</p>
+                
+                <div class="address-box">
+                    <h3>Address:</h3>
+                    <p><strong>A.S.Pharma</strong></p>
+                    <p>Block Colony Pordag</p>
+                    <p>Near NH320, Petarwar-Gomia Rd</p>
+                    <p>Bokaro Steel City, Jharkhand</p>
+                </div>
+
+                <div style="margin-top: 20px;">
+                    <h3>Contact:</h3>
+                    <p>Phone: +91 87091 84028</p> <!-- Replace with real number -->
+                    <p>Email: info@aspharma.com</p> <!-- Replace with real email -->
+                </div>
+            </div>
+
+            <!-- Google Maps Embed (Pointing generally to Bokaro) -->
+            <div class="map-container">
+                <iframe 
+                    width="100%" 
+                    height="100%" 
+                    frameborder="0" 
+                    scrolling="no" 
+                    marginheight="0" 
+                    marginwidth="0" 
+                    src="https://maps.google.com/maps?q=Bokaro%20Steel%20City&t=&z=13&ie=UTF8&iwloc=&output=embed">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 A.S.Pharma. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu -->
+    <script>
+        function toggleMenu() {
+            var nav = document.getElementById("nav-list");
+            nav.classList.toggle("active");
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                // Close menu on mobile after click
+                document.getElementById("nav-list").classList.remove("active");
+            });
+        });
+    </script>
+</body>
+</html>
